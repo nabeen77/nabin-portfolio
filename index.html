@@ -1,0 +1,1180 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <!-- Other tags like meta, title, etc. -->
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
+
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Nabin Sapkota | Portfolio </title>
+  <style>
+    /* Global resets and typography */
+    * { margin: 0; padding: 0; box-sizing: border-box; }
+    html { scroll-behavior: smooth; }
+    body { font-family: 'Segoe UI', Tahoma, sans-serif; color: #333; line-height: 1.6; }
+    a { color: inherit; text-decoration: none; }
+    img { max-width: 100%; display: block; }
+
+   /* Light background fixed header */
+header {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  background-color: #f8faff; /* light background matching portfolio */
+  z-index: 1000;
+  box-shadow: 0 2px 6px rgba(0, 0, 0, 0.05); /* soft shadow for visibility */
+}
+
+/* Full-width nav */
+nav {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 1.5rem;
+  padding: 1rem;
+}
+
+/* Nav links */
+nav a {
+  color: #333; /* dark text for light background */
+  font-weight: bold;
+  text-transform: capitalize;
+  font-size: 0.9em;
+  padding: 0.5em 1em;
+  border-radius: 6px;
+  transition: all 0.3s ease;
+}
+
+/* Hover effect */
+nav a:hover {
+  background-color: rgba(0, 122, 204, 0.1); /* light blue hover */
+  color: #007acc;
+}
+
+    /* === HERO SECTION FIXES AND ENHANCEMENTS === */
+
+.hero {
+  position: relative;
+  height: calc(100vh - 60px); /* reduce height by header height */
+  padding-top: 60px; /* space for fixed header */
+  display: flex;
+  align-items: center;
+  justify-content: flex-start;
+  padding-left: 40px;
+  text-align: left;
+  overflow: hidden;
+  color: #fff;
+  z-index: 1;
+}
+
+/* Background with dark overlay gradient */
+.hero::before {
+  content: "";
+  position: absolute;
+  top: 0; left: 0;
+  width: 100%; height: 100%;
+  background: linear-gradient(to right, rgba(0, 0, 0, 0.6), rgba(0, 0, 0, 0.2)),
+              url('https://i.ibb.co/CpVhJTwm/final.webp') center/cover no-repeat;
+  z-index: 0;
+}
+
+/* Hero text */
+ 
+.hero-content {
+  position: relative;
+  z-index: 2;
+  max-width: 600px;
+  animation: fadeUp 1s ease forwards;
+  opacity: 0;
+}
+
+.hero-content h1 {
+  font-size: clamp(2.5rem, 6vw, 4rem);
+  margin-bottom: 0.5em;
+  text-shadow: 0 2px 4px rgba(0, 0, 0, 0.5);
+}
+
+.hero-content p {
+  font-size: clamp(1rem, 2.5vw, 1.4rem);
+  margin-bottom: 1em;
+  text-shadow: 0 1px 3px rgba(0, 0, 0, 0.5);
+}
+
+.cta-button {
+  display: inline-block;
+  padding: 0.75em 1.5em;
+  background: #007acc;
+  color: #fff;
+  border-radius: 4px;
+  font-weight: 600;
+  transition: background 0.3s, transform 0.3s;
+}
+
+.cta-button:hover {
+  background: #005a99;
+  transform: scale(1.05);
+}
+
+/* Hero social icons */
+.social-icons {
+  position: absolute;
+  top: 30px;
+  right: 30px;
+  z-index: 2;
+  display: flex;
+  gap: 15px;
+}
+
+.social-icons img {
+  width: 28px;
+  height: 28px;
+  filter: brightness(0) invert(1);
+  transition: transform 0.3s;
+}
+
+.social-icons img:hover {
+  transform: scale(1.2);
+}
+
+/* Scroll-down indicator */
+.scroll-down {
+  cursor: pointer;
+  position: absolute;
+  bottom: 30px;
+  left: 50%;
+  transform: translateX(-50%);
+  font-size: 1.5rem;
+  color: #fff;
+  z-index: 2;
+  animation: bounce 2s infinite;
+}
+
+/* Fade & Bounce Animations */
+.fade-in {
+  animation: fadeInAnimation 1.5s ease forwards;
+  opacity: 0;
+}
+
+@keyframes fadeInAnimation {
+  to {
+    opacity: 1;
+  }
+}
+
+@keyframes fadeUp {
+  0% { opacity: 0; transform: translateY(40px); }
+  100% { opacity: 1; transform: translateY(0); }
+}
+
+@keyframes bounce {
+  0%, 100% { transform: translateY(0); }
+  50% { transform: translateY(10px); }
+}
+
+    /* Section layout */
+    main { padding-top: 60px; }
+    section { padding: 60px 20px; max-width: 1000px; margin: 0 auto; }
+    h2 { margin-bottom: 0.5em; }
+
+    /* About Section */
+    #about { display: flex; flex-wrap: wrap; align-items: center; }
+    #about .about-text { flex: 1 1 300px; padding: 20px; }
+    #about .about-image { flex: 1 1 300px; padding: 20px; }
+    #about img { border-radius: 4px; }
+
+  /* === Light Themed Scrolling Skills Section === */
+.skills-marquee {
+  background: #f9f9f9;
+  padding: 60px 0;
+  text-align: center;
+  overflow: hidden;
+  position: relative;
+}
+
+.skills-title {
+  font-size: 2.6rem;
+  font-weight: 700;
+  color: #000000;
+  margin-bottom: 40px;
+}
+
+.marquee-wrapper {
+  overflow: hidden;
+  position: relative;
+}
+
+.marquee-track {
+  display: flex;
+  gap: 60px;
+  animation: scrollLinear 25s linear infinite;
+  width: fit-content;
+}
+
+.skill-item {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  color: #333;
+  min-width: 120px;
+  transition: transform 0.3s ease;
+}
+
+.skill-item img {
+  width: 60px;
+  height: 60px;
+  margin-bottom: 10px;
+  filter: drop-shadow(0 0 6px rgba(0, 0, 0, 0.1));
+}
+
+.skill-item span {
+  font-size: 14px;
+  font-weight: 500;
+}
+
+.skill-item:hover {
+  transform: scale(1.1);
+}
+
+/* Infinite scrolling animation */
+@keyframes scrollLinear {
+  0% {
+    transform: translateX(0%);
+  }
+  100% {
+    transform: translateX(-50%);
+  }
+}
+
+/* Scrolling Animation */
+@keyframes scrollLeft {
+  0% {
+    transform: translateX(0%);
+  }
+  100% {
+    transform: translateX(-50%);
+  }
+}
+
+/* Stagger animation delay */
+.skill-item:nth-child(1) { animation-delay: 0.1s; }
+.skill-item:nth-child(2) { animation-delay: 0.2s; }
+.skill-item:nth-child(3) { animation-delay: 0.3s; }
+.skill-item:nth-child(4) { animation-delay: 0.4s; }
+.skill-item:nth-child(5) { animation-delay: 0.5s; }
+.skill-item:nth-child(6) { animation-delay: 0.6s; }
+
+/* Keyframes for fade-up animation */
+@keyframes fadeUp {
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+.timeline li {
+  opacity: 0;
+  transform: translateY(30px);
+  animation: fadeUp 0.8s ease forwards;
+}
+
+.timeline li:nth-child(1) { animation-delay: 0.2s; }
+.timeline li:nth-child(2) { animation-delay: 0.4s; }
+/* Add more if needed */
+ #philosophy {
+  background: #eef6ff;
+  padding: 60px 30px;
+  font-size: 1.2rem;
+  font-style: italic;
+  border-left: 5px solid #007acc;
+  max-width: 800px;
+  margin: 60px auto;
+  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.05);
+  border-radius: 10px;
+  opacity: 0;
+  transform: translateY(30px);
+  animation: fadeUp 1s ease forwards;
+}
+
+
+}
+
+
+   /* Projects */
+#projects {
+  background: #f0f4f8;
+  padding: 50px 20px;
+  font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+  color: #222;
+}
+
+#projects h2 {
+  text-align: center;
+  font-size: 2.6rem;
+  margin-bottom: 40px;
+  color: #000000;
+  font-weight: 700;
+  letter-spacing: 1.2px;
+  text-transform: none;
+}
+
+#projects .project-list {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 25px;
+  justify-content: center;
+}
+
+#projects .project-item {
+  flex: 1 1 280px;
+  background: #fff;
+  border-radius: 12px;
+  border: 1px solid #ddd;
+  overflow: hidden;
+  box-shadow: 0 6px 12px rgba(0, 0, 0, 0.05);
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+  cursor: pointer;
+  display: flex;
+  flex-direction: column;
+}
+
+#projects .project-item:hover {
+  transform: translateY(-8px);
+  box-shadow: 0 20px 40px rgba(0, 0, 0, 0.12);
+}
+
+#projects .project-item img {
+  width: 100%;
+  height: 180px;
+  object-fit: cover;
+  border-bottom: 4px solid #0a3d62;
+  transition: transform 0.3s ease;
+}
+
+#projects .project-item:hover img {
+  transform: scale(1.05);
+}
+
+#projects .project-item h3 {
+  font-size: 1.3rem;
+  margin: 16px 16px 8px;
+  color: #0a3d62;
+  font-weight: 700;
+}
+
+#projects .project-item p {
+  flex-grow: 1;
+  font-size: 1rem;
+  margin: 0 16px 20px;
+  color: #555;
+  line-height: 1.5;
+}
+    /* Timelines (Experience, Education) */
+    .timeline { list-style: none; border-left: 2px solid #007acc; margin-left: 10px; padding: 10px 20px; }
+    .timeline li {
+      position: relative; margin-bottom: 20px; padding-left: 20px;
+    }
+    .timeline li::before {
+      content: ""; position: absolute; left: -10px; top: 0;
+      width: 20px; height: 20px; background: #007acc; border-radius: 50%;
+    }
+.timeline li {
+  position: relative;
+  margin-bottom: 20px;
+  padding-left: 20px;
+  cursor: pointer;
+  transition: box-shadow 0.3s ease, transform 0.3s ease, background-color 0.3s ease;
+}
+
+.timeline li:hover {
+  background-color: #fff4e5;  /* soft orange background */
+  box-shadow: 0 4px 12px rgba(255, 165, 0, 0.3);  /* subtle orange shadow */
+  transform: translateY(-3px);
+  border-radius: 6px;
+  z-index: 10;
+}
+/* Hover effect for experience section - soft orange background & subtle shadow */
+#experience .timeline li:hover {
+  background-color: #fff4e5;  /* soft orange background */
+  box-shadow: 0 6px 12px rgba(255, 165, 0, 0.25); /* subtle soft orange shadow */
+  transform: translateY(-3px);
+  z-index: 10;
+}
+
+  #testimonials {
+  background: #f5f0fa; /* soft lavender background */
+  padding: 60px 20px;
+  font-family: 'Segoe UI', Tahoma, sans-serif;
+  text-align: center;
+  color: #333; /* default text color */
+}
+
+#testimonials h2 {
+  font-size: 2.6rem;
+  color: #000000; /* black color for the heading */
+}
+
+.testimonial-item {
+  background: #ffffff;
+  padding: 40px 20px 30px; /* Top padding increased to 40px */
+  border-radius: 12px;
+  box-shadow: 0 10px 20px rgba(0,0,0,0.08);
+  margin-bottom: 20px;
+  color: #333;
+  position: relative;
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+#testimonials .testimonial-item:hover {
+  transform: translateY(-6px);
+  box-shadow: 0 20px 40px rgba(0,0,0,0.12);
+}
+
+#testimonials .testimonial-item p:first-of-type {
+  color: #000000; /* black for testimonial quotes */
+  font-style: italic;
+  font-size: 1rem;
+  margin-bottom: 10px;
+  line-height: 1.6;
+}
+
+#testimonials .testimonial-item em {
+  color: #4B0082; /* purple or any color you want for author name */
+  font-style: normal;
+  font-weight: bold;
+  font-size: 0.95rem;
+}
+
+#testimonials .testimonial-item::before {
+  content: "❝";
+  font-size: 4rem;
+  color: #d3cce3;
+  position: absolute;
+  top: 10px;
+  left: 20px;
+  z-index: 0;
+  opacity: 0.3;
+}
+.testimonial-avatar {
+  width: 100px;
+  height: 100px;
+  border-radius: 50%;
+  object-fit: cover;
+  margin-bottom: 15px;
+  border: 2px solid #4B0082;
+  display: block;
+  margin-left: auto;
+  margin-right: auto;
+  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.15);
+}
+
+
+    /* Contact Form */
+    form { display: flex; flex-direction: column; }
+    form input,
+form textarea {
+  font-size: 1rem;
+  padding: 12px;
+  border: 1px solid #ccc;
+  border-radius: 6px;
+  transition: border-color 0.3s, box-shadow 0.3s;
+  margin-bottom: 10px;
+}
+
+form input:focus,
+form textarea:focus {
+  border-color: #007acc;
+  box-shadow: 0 0 5px rgba(0, 122, 204, 0.3);
+  outline: none;
+    }
+    form button {
+      padding: 10px; border: none; background: #007acc; color: #fff;
+      border-radius: 4px; cursor: pointer;
+    }
+    form button:hover { background: #005a99; }
+
+    /* Fade-up animation */
+    .fade-up { opacity: 0; transform: translateY(20px); transition: opacity 0.6s ease-out, transform 0.6s ease-out; }
+    .fade-up.visible { opacity: 1; transform: translateY(0); }
+
+    /* Responsive adjustments */
+    @media (max-width: 768px) {
+      .hero-content h1 { font-size: 2.2em; }
+      #about { flex-direction: column; }
+      nav { flex-direction: column; }
+      nav a { margin: 0.5em 0; }
+    }
+    /* Social Media Icons on Hero Top Right */
+.hero {
+  position: relative;
+}
+
+.social-icons {
+  position: absolute;
+  top: 20px;
+  right: 20px;
+  display: flex;
+  gap: 15px;
+  z-index: 1000;
+}
+
+.social-icons a {
+  display: inline-block;
+  width: 36px;
+  height: 36px;
+  transition: transform 0.3s ease, filter 0.3s ease;
+}
+
+.social-icons img {
+  width: 28px;
+  height: 28px;
+  filter: brightness(0) invert(1);
+  opacity: 0.7;            /* Add transparency */
+  transition: transform 0.3s, opacity 0.3s;
+}
+
+.social-icons img:hover {
+  transform: scale(1.2);
+  opacity: 1;             /* Full opacity on hover */
+}
+/* ✨ Soft Background Colors Per Section */
+#about {
+  background: #f8faff;
+}
+
+#skills {
+  background: #ffffff;
+}
+
+#projects {
+  background: #fdfdfd;
+}
+
+/* Timeline style consistent for education & experience */
+.timeline {
+  list-style: none;
+  border-left: 2px solid #007acc; /* blue vertical line */
+  margin-left: 10px;
+  padding: 10px 20px;
+}
+
+.timeline li {
+  position: relative;
+  margin-bottom: 20px;
+  padding-left: 20px;
+}
+
+.timeline li::before {
+  content: "";
+  position: absolute;
+  left: -10px;
+  top: 10px;
+  width: 20px;
+  height: 20px;
+  background: #007acc;
+  border-radius: 50%;
+}
+
+}
+/* Experience Section Styling */
+#experience {
+  background: #f5f0fa; /* same soft lavender background */
+  padding: 60px 20px;
+  font-family: 'Segoe UI', Tahoma, sans-serif;
+  color: #333;
+  border-radius: 12px;
+  max-width: 900px;
+  margin: 0 auto 60px auto;
+  box-shadow: 0 10px 20px rgba(0,0,0,0.08);
+  transition: box-shadow 0.3s ease, transform 0.3s ease;
+}
+
+#experience:hover {
+  box-shadow: 0 25px 60px rgba(255, 165, 0, 0.3);
+  transform: translateY(-6px);
+}
+
+#experience h2 {
+  font-size: 2.6rem;
+  color: #000;
+  font-weight: 700;
+  margin-bottom: 30px;
+  text-align: center;
+}
+
+#experience .timeline {
+  list-style: none;
+  padding-left: 0;
+}
+
+#experience li {
+  display: flex;
+  align-items: flex-start;
+  margin-bottom: 25px;
+  padding-left: 10px;
+  position: relative;
+}
+
+#experience li i.fas.fa-briefcase {
+  color: black;
+  font-size: 22px;
+  margin-right: 15px;
+  flex-shrink: 0;
+  margin-top: 4px;
+}
+
+#experience li div strong {
+  font-size: 1.2rem;
+  color: #000;
+  font-weight: 600;
+}
+
+#experience li div small {
+  font-size: 0.95rem;
+  color: #555;
+  display: block;
+  margin-top: 6px;
+  line-height: 1.4;
+}
+
+
+/* Education Section Styling */
+#education {
+  padding: 60px 20px;
+  font-family: 'Segoe UI', Tahoma, sans-serif;
+  color: #333;
+  border-radius: 12px;
+  max-width: 1000px;
+  margin: 0 auto 60px auto;
+  box-shadow: 0 10px 20px rgba(0,0,0,0.08);
+  transition: box-shadow 0.3s ease, transform 0.3s ease;
+}
+
+#education:hover {
+  box-shadow: 0 25px 60px rgba(255, 165, 0, 0.3); /* subtle orange glow on hover */
+  transform: translateY(-6px);
+}
+
+#education h2 {
+  font-size: 2.6rem;
+  color: #000;
+  font-weight: 700;
+  margin-bottom: 30px;
+  text-align: center;
+}
+
+#education .timeline {
+  list-style: none;
+  padding-left: 0;
+}
+
+#education li {
+  display: flex;
+  align-items: flex-start;
+  margin-bottom: 25px;
+  padding-left: 10px;
+  position: relative;
+}
+
+#education li i.fas.fa-graduation-cap {
+  color: black;
+  font-size: 22px;
+  margin-right: 15px;
+  flex-shrink: 0;
+  margin-top: 4px;
+}
+
+#education li div strong {
+  font-size: 1.2rem;
+  color: #000;
+  font-weight: 600;
+}
+
+#education li div small {
+  font-size: 0.95rem;
+  color: #555;
+  display: block;
+  margin-top: 6px;
+  line-height: 1.4;
+}
+
+#testimonials {
+  background: #ffffff;
+}
+
+#philosophy {
+  background: #eef6ff;
+}
+
+#contact {
+  background: #f8faff;
+}
+@media (max-width: 768px) {
+  .hero {
+    justify-content: center !important;
+    padding-left: 20px !important;
+    text-align: center !important;
+  }
+
+  .hero-content {
+    max-width: 90% !important;
+  }
+}
+
+   #philosophy {
+  background: #f7f6ff; /* ultra soft pastel lavender */
+  padding: 50px 40px;
+  border-radius: 16px;
+  max-width: 1000px;
+  margin: 50px auto;
+  box-shadow: 0 2px 6px rgba(0, 0, 0, 0.02); /* very faint shadow */
+  font-family: 'Segoe UI', Tahoma, sans-serif;
+  color: #6e6e6e; /* softer medium gray text */
+  text-align: center;
+  position: relative;
+  transition: box-shadow 0.4s ease, background-color 0.4s ease;
+}
+
+#philosophy:hover {
+  background-color: #fff7e6; /* soft pastel orange */
+  box-shadow: 0 0 12px 5px rgba(255, 178, 102, 0.15); /* subtle soft orange glow */
+}
+
+#philosophy h2 {
+  color: #000000; /* soft muted purple */
+  font-size: 2.6rem;
+  margin-bottom: 25px;
+  letter-spacing: 1.2px;
+  font-weight: 700;
+}
+#last-page .contact-container {
+  display: flex;
+  justify-content: space-around;
+  gap: 25px;
+  flex-wrap: wrap;
+}
+
+#last-page .contact-box {
+  background: #f5f0fa; /* soft lavender like education section */
+  border-radius: 12px;
+  box-shadow: 0 10px 20px rgba(0,0,0,0.08);
+  padding: 20px 30px;
+  max-width: 280px;
+  width: 100%;
+  display: flex;
+  align-items: center;
+  gap: 18px;
+  cursor: default;
+  transition: box-shadow 0.3s ease, transform 0.3s ease, background-color 0.3s ease;
+}
+
+#last-page .contact-box i {
+  color: black;
+  font-size: 28px;
+  flex-shrink: 0;
+}
+
+#last-page .contact-info strong {
+  display: block;
+  font-size: 1.1rem;
+  color: #000;
+  margin-bottom: 6px;
+}
+
+#last-page .contact-info a,
+#last-page .contact-info span {
+  font-size: 1rem;
+  color: #555;
+  text-decoration: none;
+}
+
+#last-page .contact-box:hover {
+  box-shadow: 0 20px 40px rgba(255, 165, 0, 0.15); /* subtle orange glow on hover */
+  background-color: #fff7e6; /* very light warm background */
+  transform: translateY(-5px);
+}
+.social-link i {
+  font-size: 24px;
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.social-link {
+  padding: 12px;
+  border-radius: 50%;
+  background-color: #f5f0fa;
+  box-shadow: 0 5px 10px rgba(0,0,0,0.05);
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  transition: transform 0.3s ease, box-shadow 0.3s ease, background-color 0.3s ease;
+}
+
+/* Hover Effects */
+.social-link:hover {
+  transform: scale(1.15);
+  box-shadow: 0 10px 20px rgba(255, 165, 0, 0.3); /* soft orange glow */
+  background-color: #fff7e6; /* match your education hover */
+}
+.footer-social-icons {
+  display: flex;
+  justify-content: center;
+  gap: 25px;
+  flex-wrap: wrap;
+  margin-top: 25px;
+}
+
+
+/* Brand Icon Colors */
+.social-link.instagram i { color: #e4405f; }
+.social-link.facebook i { color: #3b5998; }
+.social-link.linkedin i { color: #0077b5; }
+.download-cv-btn {
+  display: inline-flex;
+  align-items: center;
+  gap: 10px;
+  padding: 12px 24px;
+  margin-top: 25px;
+  background-color: #007acc;
+  color: #fff;
+  font-weight: 600;
+  font-size: 1rem;
+  border-radius: 8px;
+  text-decoration: none;
+  box-shadow: 0 8px 16px rgba(0, 0, 0, 0.08);
+  transition: background-color 0.3s ease, transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.download-cv-btn i {
+  font-size: 1.1rem;
+}
+
+.download-cv-btn:hover {
+  background-color: #005fa3;
+  transform: translateY(-3px);
+  box-shadow: 0 15px 30px rgba(255, 165, 0, 0.2);
+}
+
+
+
+
+    
+  </style>
+</head>
+<body>
+  <header>
+    <nav>
+      <a href="#hero">Home</a>
+      <a href="#about">About</a>
+      <a href="#expertise">Expertise</a>
+      <a href="#projects">Projects</a>
+      <a href="#experience">Experience</a>
+      <a href="#education">Education</a>
+      <a href="#testimonials">Testimonials</a>
+      <a href="#philosophy">Philosophy</a>
+      <a href="#contact">Contact</a>
+    </nav>
+  </header>
+
+  <main>
+    <!-- ===== Hero Section ===== -->
+    <section id="hero" class="hero">
+      <!-- Social Icons -->
+      <div class="social-icons">
+        <a href="https://www.instagram.com/manchester_nabeen7/" target="_blank" rel="noopener">
+          <img src="https://cdn-icons-png.flaticon.com/512/174/174855.png" alt="Instagram" />
+        </a>
+        <a href="https://www.facebook.com/nabin.sapkota.1447" target="_blank" rel="noopener">
+          <img src="https://cdn-icons-png.flaticon.com/512/733/733547.png" alt="Facebook" />
+        </a>
+        <a href="https://www.linkedin.com/in/nabin-sapkota-0920b4346/" target="_blank" rel="noopener">
+          <img src="https://cdn-icons-png.flaticon.com/512/174/174857.png" alt="LinkedIn" />
+        </a>
+        <a href="https://github.com/nabeen77" target="_blank" rel="noopener">
+          <img src="https://cdn-icons-png.flaticon.com/512/733/733553.png" alt="GitHub" />
+        </a>
+      </div>
+
+      <!-- Hero Text -->
+      <div class="hero-content fade-up">
+        <h1>Nabin Sapkota</h1>
+        <p>Tech Enthusiast | Designer | Web Developer</p>
+        <a href="#expertise" class="cta-button">
+  <i class="fas fa-briefcase" style="margin-right: 8px;"></i> My Expertise
+</a>
+
+      </div>
+
+      <!-- Scroll down icon -->
+     <div class="scroll-down" role="button" aria-label="Scroll down">
+  <i class="fas fa-chevron-down"></i>
+</div>
+
+    </section>
+ 
+</body>
+
+    <!-- About Section -->
+    <section id="about">
+      <h2>About Me</h2>
+      <div class="about-text fade-up">
+        <p>Hi! I’m Nabin Sapkota — a passionate Tech Enthusiast, Designer, and Web Developer based in Nepal. I enjoy crafting creative and user-friendly digital experiences by combining design principles with clean, efficient code.</p>
+        <p>With a background in IT support and cloud technologies, I bring both technical expertise and a creative mindset to every project. Whether it’s building responsive websites, designing engaging interfaces, or exploring the latest tech trends, I’m always eager to learn and grow. I’m excited to connect, collaborate, and contribute to innovative projects that make a difference.</p>
+<a href="https://app.sajilocv.com/cv/2eeff9c0-3e33-4635-9a2b-9b164d94429f" target="_blank" class="download-cv-btn">
+  <i class="fas fa-file-download"></i>
+  Download CV
+</a>
+
+      </div>
+      <div class="about-image fade-up">
+        <img src="https://i.ibb.co/jZP8Hc5r/pp.webp" alt="Working Developer">
+      </div>
+    </section>
+
+  <!-- ===== Continuous Skills Section ===== -->
+<section id="expertise" class="skills-marquee">
+  <h2 class="skills-title">Expertise</h2>
+  <div class="marquee-wrapper">
+    <div class="marquee-track">
+      <!-- === One set of skills === -->
+      <div class="skill-item">
+        <img src="https://cdn-icons-png.flaticon.com/512/919/919825.png" alt="AWS" />
+        <span>AWS</span>
+      </div>
+      <div class="skill-item">
+        <img src="https://cdn-icons-png.flaticon.com/512/732/732190.png" alt="UI/UX" />
+        <span>UI/UX</span>
+      </div>
+      <div class="skill-item">
+        <img src="https://cdn-icons-png.flaticon.com/512/5968/5968350.png" alt="Python" />
+        <span>Python</span>
+      </div>
+      <div class="skill-item">
+        <img src="https://cdn-icons-png.flaticon.com/512/732/732212.png" alt="HTML/CSS" />
+        <span>HTML/CSS</span>
+      </div>
+      <div class="skill-item">
+        <img src="https://cdn-icons-png.flaticon.com/512/2906/2906274.png" alt="IT Support" />
+        <span>IT Support</span>
+      </div>
+      <div class="skill-item">
+        <img src="https://cdn-icons-png.flaticon.com/512/2983/2983799.png" alt="Data" />
+        <span>Data Analysis</span>
+      </div>
+
+      <!-- === Duplicate same set for smooth loop === -->
+      <div class="skill-item">
+        <img src="https://cdn-icons-png.flaticon.com/512/919/919825.png" alt="AWS" />
+        <span>AWS</span>
+      </div>
+      <div class="skill-item">
+        <img src="https://cdn-icons-png.flaticon.com/512/732/732190.png" alt="UI/UX" />
+        <span>UI/UX</span>
+      </div>
+      <div class="skill-item">
+        <img src="https://cdn-icons-png.flaticon.com/512/5968/5968350.png" alt="Python" />
+        <span>Python</span>
+      </div>
+      <div class="skill-item">
+        <img src="https://cdn-icons-png.flaticon.com/512/732/732212.png" alt="HTML/CSS" />
+        <span>HTML/CSS</span>
+      </div>
+      <div class="skill-item">
+        <img src="https://cdn-icons-png.flaticon.com/512/2906/2906274.png" alt="IT Support" />
+        <span>IT Support</span>
+      </div>
+      <div class="skill-item">
+        <img src="https://cdn-icons-png.flaticon.com/512/2983/2983799.png" alt="Data" />
+        <span>Data Analysis</span>
+      </div>
+    </div>
+  </div>
+</section>
+
+    <!-- ✅ Projects Section with images updated -->
+    <section id="projects">
+      <h2>Featured Projects</h2>
+      <div class="project-list">
+        <div class="project-item fade-up">
+         <img src="https://i.ibb.co/sJjRZv6S/inventory.webp" alt="Inventory Management System" />
+
+          <h3>Inventory Management System</h3>
+          <p>Developed a web-based Inventory Management System with product catalog, real-time stock updates, user authentication, and reports. Used MySQL,    Python backend, and created a user-friendly interface.</p>
+        </div>
+        <div class="project-item fade-up">
+          <img src="https://i.ibb.co/B5BrXHN5/chatbox.jpg" alt="Chatbot">
+          <h3>Chatbot</h3>
+          <p>Created a chatbot to automate user queries and improve customer engagement. Implemented using Python and integrated APIs.</p>
+        </div>
+        <div class="project-item fade-up">
+          <img src="https://i.ibb.co/1ffXwfrh/automation-script.jpg" alt="Automation Scripts">
+          <h3>Automation Scripts</h3>
+          <p>Built various Python automation scripts to streamline data entry, file management, and system monitoring.</p>
+        </div>
+      </div>
+    </section>
+
+  <!-- Experience Section -->
+<section id="experience">
+  <h2 style="text-align: center;">Experience</h2>
+  <ul class="timeline">
+
+    <!-- Associate Cloud Engineer -->
+    <li class="fade-up" style="display: flex; align-items: center; margin-bottom: 20px;">
+      <div>
+        <i class="fas fa-briefcase" style="color: black; margin-right: 10px; font-size: 22px;"></i>
+        <strong style="font-size: 1.2rem;">Associate Cloud Engineer</strong> - MSP SOLUTIONS PVT LTD (Sep 2022 – 2024)<br>
+        <small style="font-size: 0.95rem;">
+          Supported and troubleshooted cloud infrastructure to ensure uptime and performance. Monitored systems, resolved incidents, and managed service tickets. Assisted in provisioning, access control, and cloud resource management. Collaborated on deployments, automation scripts, and system documentation. Ensured security compliance and supported hybrid cloud integrations.
+        </small>
+      </div>
+    </li>
+
+    <!-- QA Intern -->
+    <li class="fade-up" style="display: flex; align-items: center; margin-bottom: 20px;">
+      <div>
+        <i class="fas fa-briefcase" style="color: black; margin-right: 10px; font-size: 22px;"></i>
+        <strong style="font-size: 1.2rem;">QA Intern</strong> - IT HIVE SOLUTIONS (Feb 2022 – Aug 2022)<br>
+        <small style="font-size: 0.95rem;">
+          Assisted manual test case writing and software quality assurance processes.
+        </small>
+      </div>
+    </li>
+
+  </ul>
+</section>
+
+    
+<!-- Education Section -->
+<section id="education">
+  <h2>Education</h2>
+  <ul class="timeline">
+
+    <!-- Master Degree -->
+    <li class="fade-up" style="display: flex; align-items: center; margin-bottom: 20px;">
+            <div>
+        <i class="fas fa-graduation-cap" style="color: black; margin-right: 10px; font-size: 22px;"></i>
+        <strong style="font-size: 1.2rem;">Master of Computer Science</strong> - Texas International College, Mitrapark (2025 – Present)<br>
+        <small style="font-size: 0.95rem;">Currently pursuing an advanced academic program focused on software engineering, data structures and algorithms, artificial intelligence, and system design.</small>
+      </div>
+    </li>
+
+    <!-- Bachelor Degree -->
+    <li class="fade-up" style="display: flex; align-items: center;">
+           <div>
+        <i class="fas fa-graduation-cap" style="color: black; margin-right: 10px; font-size: 22px;"></i>
+        <strong style="font-size: 1.2rem;">Bachelor of Information Management</strong> - Orchid International College, Gaushala (2018 – 2024)<br>
+        <small style="font-size: 0.95rem;">Completed an interdisciplinary program blending IT, management, and business with practical exposure to system development, cloud computing, and technical support.</small>
+      </div>
+    </li>
+
+  </ul>
+</section>
+
+
+       <section id="testimonials">
+  <h2>Testimonials</h2>
+  <div class="testimonial-list">
+    <div class="testimonial-item fade-up">
+      <img src="https://i.ibb.co/whSpjh04/roshan-bhusal.jpg" alt="Chairman MSP Solutions" class="testimonial-avatar" />
+      <p>"Nabin consistently impressed us with his technical problem-solving skills and ability to stay calm under pressure. A reliable and resourceful IT professional."</p>
+      <p><em><span class="testimonial-name">Roshan Bhusal</span>, Chairman, MSP Solutions</em></p>
+
+    </div>
+    <div class="testimonial-item fade-up">
+      <img src="https://i.ibb.co/nNSsSmzS/arun-satyal.jpg" alt="Arun Satyal" class="testimonial-avatar" />
+      <p>"Nabin delivered exactly what we needed — a smooth, responsive website that looks great on all devices. Highly recommended for any web development work."</p>
+     <p><em><span class="testimonial-name">Arun Satyal</span>, Lawyer, Lex Jurist</em></p>
+
+
+    </div>
+  </div>
+</section>
+
+   <!-- Work Philosophy Section -->
+<section id="philosophy">
+  <h2>Work Philosophy</h2>
+  <div class="philosophy-content fade-up">
+    <p>
+      I approach technology as both a science and an art — combining logic with creativity to design solutions that are not only functional but meaningful. I believe in building with intention: every line of code, every system configured, and every interface designed should serve a purpose and enhance the user experience. My work is guided by three core values: adaptability in a rapidly changing digital world, precision in execution, and empathy for the end user.
+    </p>
+  </div>
+</section>
+
+   <!-- Contact Section -->
+<section id="contact">
+  <h2>Contact Me</h2>
+  <form action="https://formspree.io/f/mgvyzjeg" method="POST" class="fade-up">
+    <input type="text" name="name" placeholder="Your Name" required />
+    <input type="email" name="_replyto" placeholder="Your Email" required />
+    <textarea name="message" placeholder="Your Message" rows="4" required></textarea>
+    <button type="submit">Send Message</button>
+  </form>
+</section>
+    <section id="last-page" style="padding: 60px 20px; font-family: 'Segoe UI', Tahoma, sans-serif; max-width: 900px; margin: 0 auto; text-align: center;">
+  <h2 style="text-transform: none; font-size: 2.6rem; margin-bottom: 40px; color: #222;">Let's Work Together</h2>
+
+  <div class="contact-container" style="display: flex; justify-content: center; gap: 20px; flex-wrap: wrap;">
+    
+    <!-- Email Box -->
+    <div class="contact-box" style="padding: 15px 18px; max-width: 270px; width: 100%; overflow: hidden; text-align: left;">
+      <i class="fas fa-envelope" style="font-size: 18px; color: black;"></i>
+      <div class="contact-info" style="margin-left: 10px; flex: 1; word-break: break-word;">
+        <div style="font-size: 0.95rem; font-weight: 600;">Email</div>
+        <a href="mailto:sudeshnapandey8@gmail.com" style="font-size: 0.88rem; color: #555; text-decoration: none; display: block;">nabinsapkota5055@gmail.com</a>
+      </div>
+    </div>
+
+    <!-- Mobile Box -->
+    <div class="contact-box" style="padding: 15px 18px; max-width: 270px; width: 100%; overflow: hidden; text-align: left;">
+      <i class="fas fa-mobile-alt" style="font-size: 18px; color: black;"></i>
+      <div class="contact-info" style="margin-left: 10px; flex: 1;">
+        <div style="font-size: 0.95rem; font-weight: 600;">Mobile</div>
+        <span style="font-size: 0.88rem; color: #555;">+977 9861142100</span>
+      </div>
+    </div>
+
+    <!-- Address Box -->
+    <div class="contact-box" style="padding: 15px 18px; max-width: 270px; width: 100%; overflow: hidden; text-align: left;">
+      <i class="fas fa-map-marker-alt" style="font-size: 18px; color: black;"></i>
+      <div class="contact-info" style="margin-left: 10px; flex: 1;">
+        <div style="font-size: 0.95rem; font-weight: 600;">Address</div>
+        <span style="font-size: 0.88rem; color: #555;">Kathmandu, Nepal</span>
+      </div>
+    </div>
+
+  </div>
+
+  <h3 style="text-transform: none; font-size: 1.4rem; margin-top: 40px; margin-bottom: 40px; color: #555;">Thank You For Visiting!</h3>
+
+<div class="footer-social-icons" style="margin-top: 25px; display: flex; justify-content: center; gap: 25px;">
+  <a href="https://www.instagram.com/manchester_nabeen7/" target="_blank" class="social-link instagram">
+    <i class="fab fa-instagram"></i>
+  </a>
+  <a href="https://www.facebook.com/nabin.sapkota.1447" target="_blank" class="social-link facebook">
+    <i class="fab fa-facebook"></i>
+  </a>
+  <a href="https://www.linkedin.com/in/nabin-sapkota-0920b4346/" target="_blank" class="social-link linkedin">
+    <i class="fab fa-linkedin"></i>
+  </a>
+</div>
+
+</section>
+  </main>
+
+  <script>
+    const faders = document.querySelectorAll('.fade-up');
+    const appearOptions = { threshold: 0.2 };
+    const appearOnScroll = new IntersectionObserver(function(entries, observer) {
+      entries.forEach(entry => {
+        if (entry.isIntersecting) {
+          entry.target.classList.add('visible');
+          observer.unobserve(entry.target);
+        }
+      });
+    }, appearOptions);
+    faders.forEach(fader => appearOnScroll.observe(fader));
+  document.getElementById('theme-toggle').addEventListener('click', () => {
+    document.body.classList.toggle('dark-mode');
+  });
+</script>
+
+</body>
+</html>
